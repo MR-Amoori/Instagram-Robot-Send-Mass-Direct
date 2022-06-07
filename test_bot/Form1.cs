@@ -32,28 +32,37 @@ namespace test_bot
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            cmbUsers.SelectedText = "User 1";
-
             for (int i = 1; i <= 100; i++)
             {
                 cmbUsers.Items.Add($"User {i.ToString()}");
             }
+            cmbUsers.SelectedIndex = 0;
         }
 
         int count = 1;
 
         private void button1_Click(object sender, EventArgs e)
         {
-            User_Co user = new User_Co()
+            if (cmbUsers.SelectedIndex != 99)
             {
-                Name = cmbUsers.SelectedItem.ToString(),
-                Username = txtUsername.Text,
-                Password = txtPassword.Text
-            };
-            users.Add(user);
-            dgvUsers.Rows.Add(count, txtUsername.Text);
-            count++;
-            cmbUsers.SelectedIndex++;
+                User_Co user = new User_Co()
+                {
+                    Name = cmbUsers.SelectedItem.ToString(),
+                    Username = txtUsername.Text,
+                    Password = txtPassword.Text
+                };
+                users.Add(user);
+                dgvUsers.Rows.Add(count, txtUsername.Text);
+                count++;
+
+                cmbUsers.SelectedIndex++;
+            }
+
+            else
+            {
+                MessageBox.Show("Acconut Is Full ...");
+            }
+
         }
 
         private async void button1_Click_1(object sender, EventArgs e)

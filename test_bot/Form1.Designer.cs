@@ -51,6 +51,7 @@
             // 
             // cmbUsers
             // 
+            this.cmbUsers.Enabled = false;
             this.cmbUsers.FormattingEnabled = true;
             this.cmbUsers.Location = new System.Drawing.Point(77, 12);
             this.cmbUsers.Name = "cmbUsers";
